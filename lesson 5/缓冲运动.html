@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    #div1{
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: absolute;
+    }
+  </style>
+  <script type="text/javascript">
+    var timer=null;
+
+    function startMove(iTarget)
+    {
+      var oDiv=document.getElementById('div1');
+
+      clearInterval(timer);
+      timer=setInterval(function(){
+        var iSpeed=(iTarget-oDiv.offsetLeft)/8;
+        iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+
+
+        if(oDiv.offsetLeft==iTarget)//是否到达终点
+        {
+          clearInterval(timer);
+        }
+        else {
+          oDiv.style.left=oDiv.offsetLeft+iSpeed+'px';
+        }
+
+        document.title=oDiv.offsetLeft+',speed='+iSpeed;
+
+      },30)
+    }
+  </script>
+</head>
+<body>
+  <input type="button" value="开始运动" onclick="startMove(300)">
+  <div id="div1"></div>
+</body>
+</html>

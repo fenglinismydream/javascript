@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript">
+    //用工厂方式构造对象
+
+    function createPerson(name,sex)  //构造函数
+    {
+      //1.原料
+
+      //var obj=new Object();
+
+      //2.加工
+
+      this.name=name;
+      this.sex=sex;
+
+      this.showName=function()
+      {
+        alert('my name is :'+this.name);
+      }
+
+      this.showSex=function()
+      {
+        alert('i am :' +this.sex);
+      }
+
+      //3.出厂
+      //return obj;
+
+    }
+
+    var p1=new createPerson('blue','男');
+
+    var p2=new createPerson('leo','女');
+
+    //alert(p1.showName==p2.showName);  false
+
+    p1.showName();
+    p1.showSex();
+    p2.showName();
+    p2.showSex();
+   </script>
+</head>
+<body>
+
+</body>
+</html>
